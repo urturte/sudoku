@@ -28,6 +28,7 @@ table.sudoku {
   }
   td:hover {
     background-color: $sudoku-border-color;
+    transition: 0.5s;
   }
 
   tr {

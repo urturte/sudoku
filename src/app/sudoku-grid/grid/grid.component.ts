@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { GRID_COUNT } from '../../constants';
+import { Component, inject } from '@angular/core';
+import { tap } from 'rxjs';
+import { SudokuGridService } from '../../services/sudoku-grid.service';
 
 @Component({
   selector: 'app-grid',
@@ -9,7 +10,23 @@ import { GRID_COUNT } from '../../constants';
   styleUrl: './grid.component.scss',
 })
 export class GridComponent {
-  readonly rows: number[] = Array(GRID_COUNT).fill(0);
-  readonly cells: number[] = Array(GRID_COUNT).fill(0);
-  editCellValue(): void {}
+  private readonly sudokuGridService = inject(SudokuGridService);
+  inputValueDisplay: boolean = false;
+  sudokuGridValue: any;
+  ngOnInit() {
+    this.sudokuGridService
+      .getSudokuGridValue()
+      .pipe(
+        tap((grid: any) => {
+          this.sudokuGridValue = grid.newboard.grids[0].value;
+          console.log(this.sudokuGridValue);
+        })
+      )
+      .subscribe();
+  }
+  editCellValue(): void {
+    this.inputValueDisplay = !this.inputValueDisplay;
+    // this.updateCellValue();
+  }
+  updateCellValue(): void {}
 }

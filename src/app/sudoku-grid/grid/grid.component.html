@@ -1,9 +1,12 @@
 <table class="sudoku">
-  @for (row of rows; track $index) {
+  @for (row of sudokuGridValue; track $index) {
   <tr>
-    @for (cell of cells; track $index) {
+    @for (cell of row; track $index) {
     <td (click)="editCellValue()">
-      <input class="cell" />
+      @if (cell) {
+      {{ cell }}
+      } @else {
+      <input class="cell" maxlength="1" />}
     </td>
     }
   </tr>
