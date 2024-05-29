@@ -1,13 +1,41 @@
 @import "../../../variables.scss";
-table {
-  width: 500px;
-  height: 500px;
-  margin: auto;
-  background-color: $primary-blue;
-  border-radius: 15px;
-  border: 3px solid $primary-blue;
-}
-td {
-  background-color: white;
-  border-radius: 5px;
+
+table.sudoku {
+  border-collapse: collapse;
+  margin: 20px auto;
+
+  td {
+    width: $sudoku-cell-size;
+    height: $sudoku-cell-size;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid $sudoku-border-color;
+    font-size: $sudoku-font-size;
+
+    &:nth-child(3n) {
+      border-right-width: 3px;
+    }
+    &:last-child {
+      border-right-width: 1px;
+    }
+    .cell {
+      width: 80%;
+      height: 80%;
+      margin: auto;
+      border: none;
+      font-size: $sudoku-font-size;
+    }
+  }
+  td:hover {
+    background-color: $sudoku-border-color;
+  }
+
+  tr {
+    &:nth-child(3n) td {
+      border-bottom-width: 3px;
+    }
+    &:last-child td {
+      border-bottom-width: 1px;
+    }
+  }
 }

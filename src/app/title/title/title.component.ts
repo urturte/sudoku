@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SudokuTitle } from '../../constants';
+import { SUDOKU_TITLE } from '../../constants';
 
 @Component({
   selector: 'app-title',
@@ -9,5 +9,5 @@ import { SudokuTitle } from '../../constants';
   styleUrl: './title.component.scss',
 })
 export class TitleComponent {
-  readonly SudokuTitle = SudokuTitle;
+  readonly SUDOKU_TITLE = SUDOKU_TITLE;
 }
