@@ -11,7 +11,6 @@ import { SudokuGridService } from '../../services/sudoku-grid.service';
 })
 export class GridComponent {
   private readonly sudokuGridService = inject(SudokuGridService);
-  inputValueDisplay: boolean = false;
   sudokuGridValue: any;
   ngOnInit() {
     this.sudokuGridService
@@ -19,14 +18,12 @@ export class GridComponent {
       .pipe(
         tap((grid: any) => {
           this.sudokuGridValue = grid.newboard.grids[0].value;
-          console.log(this.sudokuGridValue);
         })
       )
       .subscribe();
   }
-  editCellValue(): void {
-    this.inputValueDisplay = !this.inputValueDisplay;
-    // this.updateCellValue();
+  // updateCellValue(cellValue): void {}
+  submit(event: Event) {
+    event.preventDefault();
   }
-  updateCellValue(): void {}
 }
