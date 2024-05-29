@@ -27,6 +27,7 @@ table.sudoku {
       appearance: none;
       text-align: center;
       color: $text-color-pink;
+      overflow-x: hidden;
     }
     .cell::-webkit-outer-spin-button,
     .cell::-webkit-inner-spin-button {
@@ -65,12 +66,5 @@ table.sudoku {
     background-color: $text-color-pink;
     color: white;
     transition: 0.5s;
-  }
-}
-@media only screen and (max-width: 700px) {
-  td {
-    input {
-      width: 100%;
-    }
   }
 }
